@@ -15,6 +15,8 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+     print(f"Request method: {request.method}")
+    print(f"Files: {request.files}")
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'}), 400
     print("Image received successfully")
@@ -31,7 +33,10 @@ def predict():
     predicted_label = class_labels[predicted_index]
 
     return jsonify({'result': predicted_label})
-
+@app.route('/test', methods=['POST'])
+def test():
+    print("POST request arrived at /test")
+    return jsonify({"message": "POST received"})
 if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
