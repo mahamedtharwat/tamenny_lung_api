@@ -17,7 +17,7 @@ def home():
 def predict():
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'}), 400
-
+    print("Image received successfully")
     image_file = request.files['image']
     image = Image.open(image_file).convert('RGB')
     
