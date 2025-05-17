@@ -15,7 +15,7 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-     print(f"Request method: {request.method}")
+    print(f"Request method: {request.method}")
     print(f"Files: {request.files}")
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'}), 400
