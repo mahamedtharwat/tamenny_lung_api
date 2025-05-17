@@ -24,9 +24,9 @@ def predict():
     image = Image.open(image_file).convert('RGB')
     
     # Resize based on model input shape (for example 224x224)
-    image = image.resize((224, 224))
+    image = image.resize((128, 128))  
     image_array = np.array(image) / 255.0
-    image_array = image_array.reshape(1, 224, 224, 3)
+    image_array = image_array.reshape(1, 128, 128, 3)
 
     prediction = model.predict(image_array)
     predicted_index = int(np.argmax(prediction))
